@@ -1,0 +1,10 @@
+grpcio==1.36.1
+torchmetrics==0.6.0
+pytorch-lightning==1.4.0
+wandb==0.12.21
+dotmap
+scikit-learn
+pandas
+scikit-image
+h5py
+image

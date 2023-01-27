@@ -1,0 +1,32 @@
+{
+    "exp_base": null,
+    "exp_name": "transfer_fixed_bigearthnet_simclr_L1_forced_budget_0.2",
+    "system": "TransferBigEarthNetSystem",
+    "cuda": true,
+    "gpu_device": 0,
+    "seed": 1,
+    "data_loader_workers": 10,
+    "data_params": {
+        "dataset": "bigearthnet"
+    },
+    "model_params": {
+        "use_prepool": true,
+        "resnet_small": true
+    },
+    "pretrain_model": {
+        "exp_dir": null,
+        "checkpoint_name": "epoch=199-step=368799.ckpt"
+    },
+    "optim_params": {
+        "batch_size": 256,
+        "learning_rate": 0.0002,
+        "momentum": 0.9,
+        "weight_decay": 0,
+        "validate_freq": 1,
+        "patience": 10
+    },
+    "num_epochs": 100,
+    "validate": true,
+    "copy_checkpoint_freq": 5,
+    "continue_from_checkpoint": null
+}
