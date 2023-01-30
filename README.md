@@ -1,5 +1,9 @@
 # Multi-Spectral Self-Supervised Learning with Viewmaker Networks
 
+[Jasmine Bayrooti](https://www.cst.cam.ac.uk/people/jgb52), [Noah Goodman](http://cocolab.stanford.edu/ndg.html), and [Alex Tamkin](https://www.alextamkin.com/)
+
+Paper link: TBD
+
 ## 0) Background
 
 Multi-spectral satellite images can capture rich information in images by measuring light beyond the visible spectrum. However, self-supervised learning is challenging in this domain due to there being fewer pre-existing data augmentations. [Viewmaker networks](https://github.com/alextamkin/viewmaker) learn to produce appropriate augmentations for general data, enabling contrastive learning applications to many domains and modalities. In this project, we apply Viewmaker networks to four different multi-spectral imaging problems to demonstrate that these domain-agnostic learning methods can provide valuable performance gains over existing domain-specific deep learning methods for multi-spectral satellite images.
