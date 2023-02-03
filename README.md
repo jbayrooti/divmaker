@@ -1,4 +1,4 @@
-# Multi-Spectral Self-Supervised Learning with Viewmaker Networks
+# Multispectral Self-Supervised Learning with Viewmaker Networks
 
 [Jasmine Bayrooti](https://www.cst.cam.ac.uk/people/jgb52), [Noah Goodman](http://cocolab.stanford.edu/ndg.html), and [Alex Tamkin](https://www.alextamkin.com/)
 
@@ -6,7 +6,7 @@ Paper link: TBD
 
 ## 0) Background
 
-Multi-spectral satellite images can capture rich information in images by measuring light beyond the visible spectrum. However, self-supervised learning is challenging in this domain due to there being fewer pre-existing data augmentations. [Viewmaker networks](https://github.com/alextamkin/viewmaker) learn to produce appropriate augmentations for general data, enabling contrastive learning applications to many domains and modalities. In this project, we apply Viewmaker networks to four different multi-spectral imaging problems to demonstrate that these domain-agnostic learning methods can provide valuable performance gains over existing domain-specific deep learning methods for multi-spectral satellite images.
+Multispectral satellite images can capture rich information in images by measuring light beyond the visible spectrum. However, self-supervised learning is challenging in this domain due to there being fewer pre-existing data augmentations. [Viewmaker networks](https://github.com/alextamkin/viewmaker) learn to produce appropriate augmentations for general data, enabling contrastive learning applications to many domains and modalities. In this project, we apply Viewmaker networks to four different multispectral imaging problems to demonstrate that these domain-agnostic learning methods can provide valuable performance gains over existing domain-specific deep learning methods for multispectral satellite images.
 
 ## 1) Install Dependencies
 
@@ -35,6 +35,6 @@ Run experiments for the different datasets as follows:
 scripts/run.py config/eurosat/pretrain_eurosat_simclr_L1_forced.json --gpu-device 0
 ```
 
-This command runs Viewmaker pretraining on the EuroSAT multi-spectral satellite dataset using GPU 0. The `config` directory holds configuration files for the different experiments, specifying the hyperparameters for each experiment. The first field in every config file is `exp_base`, which specifies the base directory to save experiment outputs. You should change this for your own setup and also update the dataset paths in `src/datasets/root_paths.py`. The experiments include standard Viewmaker pretraining, Divmaker pretraining, default views pretraining, and the associated linear protocol for transfer training.
+This command runs Viewmaker pretraining on the EuroSAT multispectral satellite dataset using GPU 0. The `config` directory holds configuration files for the different experiments, specifying the hyperparameters for each experiment. The first field in every config file is `exp_base`, which specifies the base directory to save experiment outputs. You should change this for your own setup and also update the dataset paths in `src/datasets/root_paths.py`. The experiments include standard Viewmaker pretraining, Divmaker pretraining, default views pretraining, and the associated linear protocol for transfer training.
 
 Training curves and other metrics are logged using [wandb.ai](wandb.ai).
