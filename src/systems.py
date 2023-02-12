@@ -300,11 +300,6 @@ class PretrainSystem(pl.LightningModule):
         else:
             return self.config.model_params.view_bound_magnitude  # constant
     
-    def on_train_batch_end(self, processed_batch_end_outputs: Any, batch: Any, batch_idx: int, dataloader_idx: int) -> None:
-        if 'BYOL' in self.loss_name:
-            # Add callback for user automatically since it's key to BYOL weight update
-            self.weight_callback.on_train_batch_end(self.trainer, self, processed_batch_end_outputs, batch, batch_idx, dataloader_idx)
-
     def training_step(self, batch, batch_idx, optimizer_idx):
         emb_dict = self.forward(batch)
         emb_dict['optimizer_idx'] = torch.tensor(optimizer_idx, device=self.device)
@@ -636,9 +631,6 @@ class TransferSystem(pl.LightningModule):
 
         encoder = system.model.eval()
         viewmaker = system.viewmaker.eval()
-
-        if system.loss_name == 'byol':
-            encoder = encoder.encoder  # get the resnet
 
         return encoder, viewmaker, system, system.config
 
@@ -1034,11 +1026,6 @@ class DefaultSystem(PretrainSystem):
         emb_dict['labels'] = labels
         return emb_dict
 
-    def on_train_batch_end(self, processed_batch_end_outputs: Any, batch: Any, batch_idx: int, dataloader_idx: int) -> None:
-        if self.loss_name == 'byol':
-            # Add callback for user automatically since it's key to BYOL weight update
-            self.weight_callback.on_train_batch_end(self.trainer, self, processed_batch_end_outputs, batch, batch_idx, dataloader_idx)
-
     def training_step_end(self, emb_dict):
         loss = self.get_losses_for_batch(emb_dict, train=True)
         metrics = {'loss': loss, 'temperature': self.get_t()}
@@ -1145,8 +1132,6 @@ class TransferDefaultSystem(TransferSystem):
         system.load_state_dict(checkpoint['state_dict'], strict=False)
 
         encoder = system.model.eval()
-        if system.loss_name == 'byol':
-            encoder = encoder.encoder  # get the resnet
         return encoder, config
 
     def forward(self, img, unused_valid=None):
