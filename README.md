@@ -1,4 +1,4 @@
-# Multispectral Self-Supervised Learning with Viewmaker Networks
+# Multispectral Contrastive Learning with Viewmaker Networks
 
 [Jasmine Bayrooti](https://www.cst.cam.ac.uk/people/jgb52), [Noah Goodman](http://cocolab.stanford.edu/ndg.html), and [Alex Tamkin](https://www.alextamkin.com/)
 
