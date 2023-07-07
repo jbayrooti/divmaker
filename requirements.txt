@@ -1,4 +1,4 @@
-grpcio==1.36.1
+grpcio==1.53.0
 torchmetrics==0.6.0
 pytorch-lightning==1.4.0
 wandb==0.12.21
